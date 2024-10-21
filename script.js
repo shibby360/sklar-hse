@@ -21,7 +21,7 @@ function writeTable(text) {
             td.text(line.text())
             currTr.append(td)
         } else {
-            dayList = ['','','',]
+            dayList = ['','','','']
             if(lntxt.startsWith('Monday')) {
                 dayList[0] = lntxt.replace('Monday — ','')
             } else if(lntxt.startsWith('Tuesday')) {
