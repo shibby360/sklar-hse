@@ -16,12 +16,12 @@ function writeTable(text) {
         if(lntxt.startsWith('Week')) {
             if(currTr) {
                 maintable.append(pushListToRow(dayList, currTr))
+                dayList = ['','','','']
             }
             currTr = $('<tr>')
             td.text(line.text())
             currTr.append(td)
         } else {
-            dayList = ['','','','']
             if(lntxt.startsWith('Monday')) {
                 dayList[0] = lntxt.replace('Monday — ','')
             } else if(lntxt.startsWith('Tuesday')) {
