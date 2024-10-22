@@ -9,6 +9,9 @@ function writeTable(text) {
     let maintable = $('#maintable')
     let currTr;
     let dayList = ['','','','']
+    let weekMillis = 0;
+    let wkCounter = 1;
+    let wkRanges = {}
     for(let line of lines) {
         let td = $('<td>')
         line = $(line)
@@ -20,7 +23,11 @@ function writeTable(text) {
             }
             currTr = $('<tr>')
             td.text(line.text())
+            td.attr('id', 'week' + wkCounter);
             currTr.append(td)
+            wkRanges[wkCounter] = [weekMillis, weekMillis+((6.048e+8)-1)]
+            weekMillis += 6.048e+8
+            wkCounter++;
         } else {
             if(lntxt.startsWith('Monday')) {
                 dayList[0] = lntxt.replace('Monday — ','')
@@ -34,6 +41,13 @@ function writeTable(text) {
         }
     }
     maintable.append(pushListToRow(dayList, currTr))
+    // scroll to the right row
+    for(let weekNum of wkRanges) {
+        let range = wkRanges[weekNum]
+        if(Date.now() > range[0] && Date.now() < range[1]) {
+            $('#week'+weekNum)[0].scrollIntoView()
+        }
+    }
 }
 function pushListToRow(arr, trEl) {
     for(let day of arr) {
