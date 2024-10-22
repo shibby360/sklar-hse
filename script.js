@@ -22,8 +22,8 @@ function writeTable(text) {
                 dayList = ['','','','']
             }
             currTr = $('<tr>')
+            currTr.attr('id', 'week' + wkCounter);
             td.text(line.text())
-            td.attr('id', 'week' + wkCounter);
             currTr.append(td)
             wkRanges[wkCounter] = [weekMillis, weekMillis+((6.048e+8)-1)]
             weekMillis += 6.048e+8
@@ -42,10 +42,12 @@ function writeTable(text) {
     }
     maintable.append(pushListToRow(dayList, currTr))
     // scroll to the right row
-    for(let weekNum of wkRanges) {
+    let aug5PST = 1722927600000;
+    for(let weekNum in wkRanges) {
         let range = wkRanges[weekNum]
-        if(Date.now() > range[0] && Date.now() < range[1]) {
+        if(Date.now() - aug5PST > range[0] && Date.now() - aug5PST < range[1]) {
             $('#week'+weekNum)[0].scrollIntoView()
+            $('#week'+weekNum).css('color','red')
         }
     }
 }
