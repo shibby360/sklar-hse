@@ -42,7 +42,7 @@ function writeTable(text) {
     }
     maintable.append(pushListToRow(dayList, currTr))
     // scroll to the right row
-    let aug5PST = 1722927600000;
+    let aug5PST = 1.7228412e+12;
     for(let weekNum in wkRanges) {
         let range = wkRanges[weekNum]
         if(Date.now() - aug5PST > range[0] && Date.now() - aug5PST < range[1]) {
