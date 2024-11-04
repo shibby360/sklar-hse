@@ -1,4 +1,5 @@
 function writeTable(text) {
+    $('h1').hide()
     let parser = new DOMParser()
     let content = parser.parseFromString(text, 'text/html')
     let jqcontent = $(content)
