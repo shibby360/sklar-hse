@@ -42,15 +42,18 @@ function writeTable(text) {
         }
     }
     maintable.append(pushListToRow(dayList, currTr))
-    // scroll to the right row
+    // scroll to the right row and hightlight the right day
     let aug5PST = 1.7228412e+12;
+    let weekN
     for(let weekNum in wkRanges) {
         let range = wkRanges[weekNum]
         if(Date.now() - aug5PST > range[0] && Date.now() - aug5PST < range[1]) {
             $('#week'+weekNum)[0].scrollIntoView()
-            $('#week'+weekNum).css('color','red')
+            $('#week'+weekNum).css('border','4px red solid')
+            weekN = weekNum
         }
     }
+    $('#week'+weekN+'>.day'+new Date().getDay()).css('border', '4px blue solid')
 }
 function pushListToRow(arr, trEl) {
     let dayIndices = [1,2,4,5]
