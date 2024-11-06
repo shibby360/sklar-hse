@@ -53,7 +53,14 @@ function writeTable(text) {
             weekN = weekNum
         }
     }
-    $('#week'+weekN+'>.day'+new Date().getDay()).css('border', '4px blue solid')
+    let currDay = new Date().getDay()
+    $('#week'+weekN+'>.day'+currDay).css('border', '4px blue solid')
+    // fill in recap info
+    let dayBefore = {2:1,4:2,5:4}
+    let dayAfter = {1:2,2:4,4:5}
+    if(currDay in dayBefore) { $('#yesterStuff').text($('#week'+weekN+'>.day'+dayBefore[currDay]).text()) }
+    if([1,2,4,5].includes(currDay)) { $('#todayStuff').text($('#week'+weekN+'>.day'+currDay).text()) }
+    if(currDay in dayAfter) { $('#tomorStuff').text($('#week'+weekN+'>.day'+dayAfter[currDay]).text()) }
 }
 function pushListToRow(arr, trEl) {
     let dayIndices = [1,2,4,5]

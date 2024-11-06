@@ -4,3 +4,23 @@ table {
 td, th {
     border: 3px black solid;
 }
+#stickySummary p {
+    margin: 0;
+}
+#todayDiv {
+    color: #000095;
+    padding: 5px;
+}
+.summaryHeader {
+    text-align: center;
+}
+#stickySummary {
+    position: sticky;
+    top: 5px;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    background: rgb(218, 0, 0);
+    border-radius: 12px;
+    padding: 20px;
+}
