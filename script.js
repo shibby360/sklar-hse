@@ -56,7 +56,7 @@ function pushListToRow(arr, trEl) {
     let dayIndices = [1,2,4,5]
     let dayInd = 0;
     for(let day of arr) {
-        let td = $('<td class=day"' + dayInd + '">')
+        let td = $('<td class="day' + dayIndices[dayInd] + '">')
         td.text(day)
         trEl.append(td)
         dayInd ++
