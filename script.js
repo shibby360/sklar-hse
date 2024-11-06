@@ -53,10 +53,13 @@ function writeTable(text) {
     }
 }
 function pushListToRow(arr, trEl) {
+    let dayIndices = [1,2,4,5]
+    let dayInd = 0;
     for(let day of arr) {
-        let td = $('<td>')
+        let td = $('<td class=day"' + dayInd + '">')
         td.text(day)
         trEl.append(td)
+        dayInd ++
     }
     return trEl
 }
