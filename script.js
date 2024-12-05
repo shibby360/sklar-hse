@@ -13,6 +13,7 @@ function writeTable(text) {
     let weekMillis = 0;
     let wkCounter = 1;
     let wkRanges = {}
+    let weeksBeforeBreak = {16:1};
     for(let line of lines) {
         let td = $('<td>')
         line = $(line)
@@ -29,6 +30,9 @@ function writeTable(text) {
             wkRanges[wkCounter] = [weekMillis, weekMillis+((6.048e+8)-1)]
             weekMillis += 6.048e+8
             wkCounter++;
+            if(wkCounter in weeksBeforeBreak) {
+                weekMillis += (6.048e+8)*weeksBeforeBreak[wkCounter];
+            }
         } else {
             if(lntxt.startsWith('Monday')) {
                 dayList[0] = lntxt.replace('Monday — ','')
