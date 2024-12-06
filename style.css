@@ -24,3 +24,6 @@ td, th {
     border-radius: 12px;
     padding: 20px;
 }
+#linkDiv {
+    float: right;
+}
