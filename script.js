@@ -46,6 +46,13 @@ function writeTable(text) {
         }
     }
     maintable.append(pushListToRow(dayList, currTr))
+    for(let breakWk in weeksBeforeBreak) {
+        for(let i = 1; i <= weeksBeforeBreak[breakWk]; i++) {
+            let breakTr = $('<tr>')
+            breakTr.append($('<td colspan="5" style="text-align: center">BREAK WEEK ' + i + '</td>'))
+            $('#week'+breakWk).after(breakTr)
+        }
+    }
     // scroll to the right row and hightlight the right day
     let aug5PST = 1.7228412e+12;
     let weekN
