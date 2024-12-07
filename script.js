@@ -51,7 +51,7 @@ function writeTable(text) {
     maintable.append(pushListToRow(dayList, currTr))
     for(let breakWk in weeksBeforeBreak) {
         for(let i = 1; i <= weeksBeforeBreak[breakWk]; i++) {
-            let breakTr = $('<tr style="background: ' + breakStyle[breakWk[1]] + ';">')
+            let breakTr = $('<tr style="background: ' + breakStyle[breakWk][1] + ';">')
             breakTr.append($('<td colspan="5" style="text-align: center">' + breakStyle[breakWk][0] + ' break week ' + i + '</td>'))
             $('#week'+breakWk).after(breakTr)
         }
