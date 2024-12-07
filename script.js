@@ -14,6 +14,9 @@ function writeTable(text) {
     let wkCounter = 1;
     let wkRanges = {}
     let weeksBeforeBreak = {16:1};
+    let breakStyle = {
+        16:["Thanksgiving","rgb(255,140,0)"]
+    }
     for(let line of lines) {
         let td = $('<td>')
         line = $(line)
@@ -48,8 +51,8 @@ function writeTable(text) {
     maintable.append(pushListToRow(dayList, currTr))
     for(let breakWk in weeksBeforeBreak) {
         for(let i = 1; i <= weeksBeforeBreak[breakWk]; i++) {
-            let breakTr = $('<tr>')
-            breakTr.append($('<td colspan="5" style="text-align: center">BREAK WEEK ' + i + '</td>'))
+            let breakTr = $('<tr style="background: ' + breakStyle[breakWk[1]] + ';">')
+            breakTr.append($('<td colspan="5" style="text-align: center">' + breakStyle[breakWk][0] + ' break week ' + i + '</td>'))
             $('#week'+breakWk).after(breakTr)
         }
     }
