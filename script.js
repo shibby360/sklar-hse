@@ -13,9 +13,10 @@ function writeTable(text) {
     let weekMillis = 0;
     let wkCounter = 1;
     let wkRanges = {}
-    let weeksBeforeBreak = {16:1};
+    let weeksBeforeBreak = {16:1,19:2};
     let breakStyle = {
-        16:["Thanksgiving","rgb(255,140,0)"]
+        16:["Thanksgiving","rgb(255,140,0)"],
+        19:["Winter", "rgb(0, 153, 255)"],
     }
     for(let line of lines) {
         let td = $('<td>')
