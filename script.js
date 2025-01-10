@@ -13,7 +13,7 @@ function writeTable(text) {
     let weekMillis = 0;
     let wkCounter = 1;
     let wkRanges = {}
-    let weeksBeforeBreak = {16:1,19:2};
+    let weeksBeforeBreak = {};
     let breakStyle = {
         
     }
