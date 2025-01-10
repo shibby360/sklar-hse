@@ -62,7 +62,7 @@ function writeTable(text) {
     let weekN
     for(let weekNum in wkRanges) {
         let range = wkRanges[weekNum]
-        if(Date.now() - aug5PST > range[0] && Date.now() - aug5PST < range[1]) {
+        if(Date.now() - jan8PST > range[0] && Date.now() - jan8PST < range[1]) {
             $('#week'+weekNum)[0].scrollIntoView()
             $('#week'+weekNum).css('border','4px red solid')
             weekN = weekNum
