@@ -15,8 +15,7 @@ function writeTable(text) {
     let wkRanges = {}
     let weeksBeforeBreak = {16:1,19:2};
     let breakStyle = {
-        16:["Thanksgiving","rgb(255,140,0)"],
-        19:["Winter", "rgb(0, 153, 255)"],
+        
     }
     for(let line of lines) {
         let td = $('<td>')
@@ -58,7 +57,8 @@ function writeTable(text) {
         }
     }
     // scroll to the right row and hightlight the right day
-    let aug5PST = 1.7228412e+12;
+    // let aug5PST = 1.7228412e+12;
+    let jan8PST = 1736323200000;
     let weekN
     for(let weekNum in wkRanges) {
         let range = wkRanges[weekNum]
