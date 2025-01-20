@@ -58,11 +58,11 @@ function writeTable(text) {
     }
     // scroll to the right row and hightlight the right day
     // let aug5PST = 1.7228412e+12;
-    let jan8PST = 1736323200000;
+    let jan6PST = 1736150400000;
     let weekN
     for(let weekNum in wkRanges) {
         let range = wkRanges[weekNum]
-        if(Date.now() - jan8PST > range[0] && Date.now() - jan8PST < range[1]) {
+        if(Date.now() - jan6PST > range[0] && Date.now() - jan6PST < range[1]) {
             $('#week'+weekNum)[0].scrollIntoView()
             $('#week'+weekNum).css('border','4px red solid')
             weekN = weekNum
