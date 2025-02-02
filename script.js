@@ -64,12 +64,12 @@ function writeTable(text) {
         let range = wkRanges[weekNum]
         if(Date.now() - jan6PST > range[0] && Date.now() - jan6PST < range[1]) {
             $('#week'+weekNum)[0].scrollIntoView()
-            $('#week'+weekNum).css('border','4px red solid')
+            $('#week'+weekNum).addClass('currWeek')
             weekN = weekNum
         }
     }
     let currDay = new Date().getDay()
-    $('#week'+weekN+'>.day'+currDay).css('border', '4px blue solid')
+    $('#week'+weekN+'>.day'+currDay).addClass('currDay')
     // fill in recap info
     let dayBefore = {2:1,4:2,5:4}
     let dayAfter = {1:2,2:4,4:5}
@@ -81,7 +81,7 @@ function pushListToRow(arr, trEl) {
     let dayIndices = [1,2,4,5]
     let dayInd = 0;
     for(let day of arr) {
-        let td = $('<td class="day' + dayIndices[dayInd] + '">')
+        let td = $('<td class="day' + dayIndices[dayInd] + ' ">')
         td.text(day)
         trEl.append(td)
         dayInd ++
@@ -90,4 +90,21 @@ function pushListToRow(arr, trEl) {
 }
 fetch('https://sklar-server.vercel.app/soph-honors').then(function(r) {
     r.text().then(writeTable)
+})
+let isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches || (localStorage.getItem('darkModeOn')=='true');
+if(isDarkMode) {
+    $('body').addClass('dark')
+    $('#themeSwitch').find('img').attr('src', 'moon.png')
+}
+localStorage.setItem('darkModeOn', isDarkMode)
+$('#themeSwitch').click(function(ev) {
+    localStorage.setItem('darkModeOn', !(localStorage.getItem('darkModeOn')=='true'))
+    isDarkMode = localStorage.getItem('darkModeOn') == 'true'
+    if(isDarkMode) {
+        $('body').addClass('dark')
+        $('#themeSwitch').find('img').attr('src', 'moon.png')
+    } else {
+        $('body').removeClass('dark')
+        $('#themeSwitch').find('img').attr('src', 'sun.png')
+    }
 })

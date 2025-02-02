@@ -5,14 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Sklar HSE</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @custom-variant dark (&:where(.dark, .dark *));
+        td, th {
+            @apply border-3 border-black border-solid dark:border-white dark:text-gray-300;
+        }
+        td {
+            @apply text-center;
+        }
+        .currWeek {
+            @apply border-4 border-red-500 border-solid dark:border-green-500;
+        }
+        .currDay {
+            @apply border-4 dark:border-orange-500 border-solid;
+        }
+    </style>
 </head>
-<body>
-    <div id="linkDiv">
-        <a href="https://sklarnation.com" target="_blank">sklar's actual website</a>
-        <br>
-        <a href="https://shibby360.github.io">main github site</a>
+<body class="font-serif text-sm p-5 bg-white dark:bg-gray-800">
+    <div id="sideBar" class="float-right ">
+        <div id="linkDiv" class="p-3 underline text-blue-700 dark:text-cyan-500">
+            <a href="https://sklarnation.com" target="_blank" class="hover:text-blue-950 dark:hover:text-cyan-50">sklar's actual website</a>
+            <br>
+            <a href="https://shibby360.github.io" class="hover:text-blue-950 dark:hover:text-cyan-50">main github site</a>
+        </div>
+        <div id="themeSwitch" class="bg-gray-50 border-black border-3 border-solid rounded-xl size-13 m-auto mt-10 hover:cursor-pointer flex items-center place-content-center">
+            <img src="sun.png" class="size-10">
+        </div>
     </div>
-    <div id="stickySummary">
+    <div id="stickySummary" style="display: none;">
         <div id="yesterDiv">
             <p class="summaryHeader">Yesterday</p>
             <p id="yesterStuff">nothing for yesterday</p>
@@ -26,7 +47,7 @@
             <p id="tomorStuff">nothing for tomorrow</p>
         </div>
     </div>
-    <table id="maintable">
+    <table id="maintable" class="shadow-xl dark:shadow-blue-700/50 shadow-black/50 border-collapse">
         <tr>
             <th></th>
             <th>Monday</th>
@@ -35,7 +56,9 @@
             <th>Friday</th>
         </tr>
     </table>
-    <h1>loading...</h1>
+    <h1 class="text-4xl dark:text-white">loading...</h1>
+    <a href="https://www.flaticon.com/free-icons/weather" title="weather icons">Weather icons created by Freepik - Flaticon</a>
+    <a href="https://www.flaticon.com/free-icons/moon" title="moon icons">Moon icons created by Good Ware - Flaticon</a>
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
     <script src='script.js'></script>
 </body>

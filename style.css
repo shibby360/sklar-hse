@@ -1,9 +1,3 @@
-table {
-    border-collapse: collapse;
-}
-td, th {
-    border: 3px black solid;
-}
 #stickySummary p {
     margin: 0;
 }
@@ -23,7 +17,4 @@ td, th {
     background: rgb(218, 0, 0);
     border-radius: 12px;
     padding: 20px;
-}
-#linkDiv {
-    float: right;
 }
