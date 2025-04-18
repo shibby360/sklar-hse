@@ -13,9 +13,9 @@ function writeTable(text) {
     let weekMillis = 0;
     let wkCounter = 1;
     let wkRanges = {}
-    let weeksBeforeBreak = {};
+    let weeksBeforeBreak = {13:1};
     let breakStyle = {
-        
+        13:["Spring", "green"]
     }
     for(let line of lines) {
         let td = $('<td>')
